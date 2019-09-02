@@ -27,6 +27,6 @@ public class MainActivity extends AppCompatActivity {
 //        No23.ListNode listNode2 = new No23.ListNode(2);
 //        listNode2.next = new No23.ListNode(6);
 
-        Log.d("lizheren", "clickTv: " + new No50().myPow(2.0000, -2));
+        Log.d("lizheren", "clickTv: " + new No32a().longestValidParentheses(")()())"));
     }
 }
