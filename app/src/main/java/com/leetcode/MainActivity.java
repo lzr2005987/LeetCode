@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-import java.util.Arrays;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -27,6 +25,6 @@ public class MainActivity extends AppCompatActivity {
 //        No23.ListNode listNode2 = new No23.ListNode(2);
 //        listNode2.next = new No23.ListNode(6);
 
-        Log.d("lizheren", "clickTv: " + new No34().searchRange(new int[]{5, 7, 7, 8, 8, 10}, 6));
+        Log.d("lizheren", "clickTv: " + new No55Recursion().canJump(new int[]{1, 2}));
     }
 }
