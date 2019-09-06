@@ -4,13 +4,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tv = (TextView) findViewById(R.id.tv);
     }
 
     public void clickTv(View v) {
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 //        No23.ListNode listNode2 = new No23.ListNode(2);
 //        listNode2.next = new No23.ListNode(6);
 
-        Log.d("lizheren", "clickTv: " + new No55Recursion().canJump(new int[]{1, 2}));
+        Log.d("lizheren", "clickTv: " + new No67().addBinary("1010", "1011"));
+//        tv.setText(new No42().trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
     }
 }
