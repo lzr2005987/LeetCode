@@ -22,14 +22,13 @@ public class MainActivity extends AppCompatActivity {
 //        Log.d("lizheren", "clickTv: "+s);
 //        Log.d("lizheren", "clickTv: " + new No5().longestPalindrome("whdqcudjpisufnrtsyupwtnnbsvfptrcgvobbjglmpynebblpigaflpbezjvjgbmofejyjssdhbgghgrhzuplbeptpaecfdanhlylgusptlgobkqnulxvnwuzwauewcplnvcwowmbxxnhsdmgxtvbfgnuqdpxennqglgmspbagvmjcmzmbsuacxlqfxjggrwsnbblnnwisvmpwwhomyjylbtedzrptejjsaiqzprnadkjxeqfdpkddmbzokkegtypxaafodjdwirynzurzkjzrkufsokhcdkajwmqvhcbzcnysrbsfxhfvtodqabvbuosxtonbpmgoemcgkudandrioncjigbyizekiakmrfjvezuzddjxqyevyenuebfwugqelxwpirsoyixowcmtgosuggrkdciehktojageynqkazsqxraimeopcsjxcdtzhlbvtlvzytgblwkmbfwmggrkpioeofkrmfdgfwknrbaimhefpzckrzwdvddhdqujffwvtvfyjlimkljrsnnhudyejcrtrwvtsbkxaplchgbikscfcbhovlepdojmqybzhbiionyjxqsmquehkhzdiawfxunguhqhkxqdiiwsbuhosebxrpcstpklukjcsnnzpbylzaoyrmyjatuovmaqiwfdfwyhugbeehdzeozdrvcvghekusiahfxhlzclhbegdnvkzeoafodnqbtanfwixjzirnoaiqamjgkcapeopbzbgtxsjhqurbpbuduqjziznblrhxbydxsmtjdfeepntijqpkuwmqezkhnkwbvwgnkxmkyhlbfuwaslmjzlhocsgtoujabbexvxweigplmlewumcone"));
 
-//        No23.ListNode listNode = new No23.ListNode(1);
-//        listNode.next = new No23.ListNode(4);
-//        No23.ListNode listNode1 = new No23.ListNode(1);
-//        listNode1.next = new No23.ListNode(3);
-//        No23.ListNode listNode2 = new No23.ListNode(2);
-//        listNode2.next = new No23.ListNode(6);
-
-        Log.d("lizheren", "clickTv: " + new No67().addBinary("1010", "1011"));
+//        No83.ListNode listNode = new No83.ListNode(1);
+//        No83.ListNode listNode1 = new No83.ListNode(1);
+//        No83.ListNode listNode2 = new No83.ListNode(2);
+//        listNode.next = listNode1;
+//        listNode1.next = listNode2;
+        char[][] params={{'C','A','A'},{'A','A','A'},{'B','C','D'}};
+        Log.d("lizheren", "clickTv: " + new No80().removeDuplicates(new int[]{1,2}));
 //        tv.setText(new No42().trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
     }
 }
