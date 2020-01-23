@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.leetcode.no201_250.No240;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView tv;
