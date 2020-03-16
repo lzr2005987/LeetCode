@@ -11,7 +11,7 @@ package com.leetcode.interview;
  *
  * 输出: [1,2,2,3,5,6]
  */
-public class InterView1001 {
+public class Interview1001 {
     public void merge(int[] A, int m, int[] B, int n) {
         int i = m - 1, j = n - 1, k = m + n - 1;
         while (i >= 0 || j >= 0) {

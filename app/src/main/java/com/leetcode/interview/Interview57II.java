@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * 输入：target = 15
  * 输出：[[1,2,3,4,5],[4,5,6],[7,8]]
  */
-public class InterView57II {
+public class Interview57II {
     public int[][] findContinuousSequence(int target) {
         int left = 1, right = 2;
         ArrayList<int[]> ans = new ArrayList<>();
