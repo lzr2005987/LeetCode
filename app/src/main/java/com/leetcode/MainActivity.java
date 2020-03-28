@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.leetcode.no201_250.No240;
+import com.leetcode.standard.HeapSort;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +20,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickTv(View v) {
-        No991 no991 = new No991();
-        Log.d("lizheren",""+no991.brokenCalc(5,8));
+        int[] a={3,5,3,3,2,2,3};
+        HeapSort.sort(a);
+        for(int ans:a){
+            Log.d("lizheren", "clickTv: "+ans);
+        }
     }
 }
