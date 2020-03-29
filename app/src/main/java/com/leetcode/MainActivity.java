@@ -2,11 +2,10 @@ package com.leetcode;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.leetcode.standard.HeapSort;
+import com.leetcode.no201_250.No239;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,10 +19,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickTv(View v) {
-        int[] a={3,5,3,3,2,2,3};
-        HeapSort.sort(a);
-        for(int ans:a){
-            Log.d("lizheren", "clickTv: "+ans);
-        }
+        int[] a = {9, 10, 9, -7, -4, -8, 2, -6};
+        No239 no239 = new No239();
+        no239.maxSlidingWindow(a, 5);
+
     }
 }
