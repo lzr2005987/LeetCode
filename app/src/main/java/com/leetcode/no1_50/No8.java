@@ -15,11 +15,11 @@ public class No8 {
         if (!num.contains(String.valueOf(chars[0])) && !symbol.contains(String.valueOf(chars[0]))) {
             return 0;
         }
-        if (str.trim().startsWith("-")) {
-            isNegtive = true;
-        }
         if (symbol.contains(String.valueOf(chars[0]))) {
             start = 1;
+            if (chars[0] == '-') {
+                isNegtive = true;
+            }
         }
         for (int i = start; i < chars.length; i++) {
             if (num.contains(String.valueOf(chars[i]))) {
@@ -29,8 +29,7 @@ public class No8 {
             }
         }
         try {
-            //"+"
-            if (sb.toString().length()==0){
+            if (sb.toString().length() == 0) {
                 return 0;
             }
             result = Integer.valueOf(sb.toString());
