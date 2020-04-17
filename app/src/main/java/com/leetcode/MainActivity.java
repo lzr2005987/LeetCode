@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.leetcode.no201_250.No239;
+import com.leetcode.no351_400.No355;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,9 +19,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickTv(View v) {
-        int[] a = {9, 10, 9, -7, -4, -8, 2, -6};
-        No239 no239 = new No239();
-        no239.maxSlidingWindow(a, 5);
-
+        No355 no355 = new No355();
+        no355.postTweet(1,1);
+        no355.getNewsFeed(1);
+        no355.follow(2,1);
+        no355.getNewsFeed(2);
     }
 }

@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.no351_400;
 
 /**
  * 祖贝定理：ax+by=z有解时，当且仅当z是a和b的最大公约数的倍数

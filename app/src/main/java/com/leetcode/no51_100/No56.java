@@ -1,10 +1,17 @@
 package com.leetcode.no51_100;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class No56 {
     public int[][] merge(int[][] intervals) {
-        sort(intervals);
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[0] - o2[0];
+            }
+        });
         ArrayList<int[]> list = new ArrayList<>();
         int left = 0, right = 0;
         while (right < intervals.length) {
@@ -30,17 +37,5 @@ public class No56 {
             ans[i] = list.get(i);
         }
         return ans;
-    }
-
-    private void sort(int[][] nums) {
-        for (int i = 0; i < nums.length - 1; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[i][0] > nums[j][0]) {
-                    int[] temp = nums[i];
-                    nums[i] = nums[j];
-                    nums[j] = temp;
-                }
-            }
-        }
     }
 }
