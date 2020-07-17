@@ -1,40 +1,40 @@
 package com.leetcode.no751_800;
 
 public class No785 {
-    int ans = 0;
-    int totalSize = 0;
+    private int ans = 0;
+    private int totalSize = 0;
 
     public boolean isBipartite(int[][] graph) {
         int[] color = new int[graph.length];
-        color[0] = 1;
+        totalSize = graph.length;
         for (int i = 0; i < graph.length; i++) {
-            totalSize += graph[i].length;
+            if (color[i] == 0) {
+                color[i] = 1;
+                totalSize--;
+            }
+            search(graph, color, i);
+            if (ans != 0) return ans == 1;
         }
-        search(graph, color, 0);
         return ans == 1;
     }
 
     private void search(int[][] graph, int[] color, int cur) {
-        if (totalSize <= 0) {
+        if (ans == 2) {
+            return;
+        } else if (totalSize <= 0) {
             ans = 1;
             return;
         }
-        if (ans != 0) {
-            return;
-        }
+
         int curColor = color[cur];
         for (int i = 0; i < graph[cur].length; i++) {
-            if (totalSize <= 0) {
-                ans = 1;
-                return;
-            }
-            if (ans != 0) {
-                return;
-            }
             if (color[graph[cur][i]] == 0) {
                 color[graph[cur][i]] = curColor == 1 ? 2 : 1;
                 totalSize--;
                 search(graph, color, graph[cur][i]);
+                if (ans == 2) {
+                    return;
+                }
             } else if (color[graph[cur][i]] == curColor) {
                 ans = 2;
                 return;
