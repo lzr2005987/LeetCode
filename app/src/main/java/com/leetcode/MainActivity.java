@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.leetcode.standard.BackTrack;
+import com.leetcode.standard.DiscountCalculate;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
 //        list.add(18);
 //        list.add(50);
 //        DiscountCalculate.getDiscountDp(list, 60);
-        BackTrack back = new BackTrack();
-        int sum = back.timeCount(5);
+
+        double[] list = new double[]{20.12, 29.24, 30.34, 18.12, 50.74};
+        DiscountCalculate.getDiscountDpOptimize(60.25, list);
     }
 }
