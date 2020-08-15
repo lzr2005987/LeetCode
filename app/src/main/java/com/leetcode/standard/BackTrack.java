@@ -1,6 +1,7 @@
 package com.leetcode.standard;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BackTrack {
@@ -8,7 +9,10 @@ public class BackTrack {
 
     public List<List<Integer>> permutation(int n) {
         List<Integer> list = new ArrayList<>();
-        backTrack(list, n);
+        for (int i = 1; i <= n; i++) {
+            list.add(i);
+        }
+        backTrack(list, n, 0);
         return ans;
     }
 
@@ -24,6 +28,15 @@ public class BackTrack {
                 backTrack(cur, n);
                 list.remove(cur.size() - 1);
             }
+        }
+    }
+
+    private void backTrack(List<Integer> list, int n, int start) {
+        ans.add(list);
+        for (int i = start + 1; i < n; i++) {
+            List<Integer> cur = new ArrayList<>(list);
+            Collections.swap(cur, start, i);
+            backTrack(cur, n, start + 1);
         }
     }
 
