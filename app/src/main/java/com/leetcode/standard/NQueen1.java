@@ -1,51 +1,66 @@
 package com.leetcode.standard;
 
-public class NQueen {
+public class NQueen1 {
     private int ans = 0;
 
     public int totalNQueens(int n) {
-        int[][] position = new int[n][2];
-        backtrack(position, n, 0);
+        int[][] chessboard = new int[n][n];
+        backtrack(chessboard, n, 0);
         return ans;
     }
 
-    private void backtrack(int[][] position, int n, int cur) {
+    private void backtrack(int[][] chessboard, int n, int cur) {
         for (int i = 0; i < n; i++) {
-            boolean isPut = false;
-            for (int j = 0; j < n; j++) {
-                if (check(position, i, j, cur)) {
-                    isPut = true;
-                    if (cur == n - 1) {
-                        ans++;
-                        return;
-                    }
-                    position[cur][0] = i;
-                    position[cur][1] = j;
-                    backtrack(copy(position, cur), n, cur + 1);
+            if (check(chessboard, cur, i)) {//判断当前位置能不能放
+                if (cur == n - 1) {
+                    ans++;
+                    return;
                 }
-            }
-            if (!isPut) {
-                break;
+                chessboard[cur][i] = 1;//放置皇后
+                backtrack(copy(chessboard), n, cur + 1);//深拷贝，递归
+                chessboard[cur][i] = 0;//回溯
             }
         }
     }
 
-    private int[][] copy(int[][] origin, int cur) {
-        int[][] newArray = new int[origin.length][2];
-        for (int i = 0; i <= cur; i++) {
-            newArray[i][0] = origin[i][0];
-            newArray[i][1] = origin[i][1];
-        }
+    private int[][] copy(int[][] origin) {
+        int len = origin.length;
+        int[][] newArray = new int[len][len];
+        System.arraycopy(origin, 0, newArray, 0, len);
         return newArray;
     }
 
-    private boolean check(int[][] position, int i, int j, int cur) {
-        for (int k = 0; k < cur; k++) {
-            int x = position[k][0];
-            int y = position[k][1];
-            if (x == i || y == j || Math.abs(x - i) == Math.abs(y - j)) {
-                return false;
-            }
+    private boolean check(int[][] chessboard, int i, int j) {
+        int len = chessboard.length;
+        for (int k = 0; k < len; k++) {
+            if (chessboard[i][k] == 1 || chessboard[k][j] == 1) return false;
+        }
+        int x = i, y = j;
+        while (x >= 0 && y >= 0) {
+            if (chessboard[x][y] == 1) return false;
+            x--;
+            y--;
+        }
+        x = i;
+        y = j;
+        while (x < len && y < len) {
+            if (chessboard[x][y] == 1) return false;
+            x++;
+            y++;
+        }
+        x = i;
+        y = j;
+        while (x < len && y >= 0) {
+            if (chessboard[x][y] == 1) return false;
+            x++;
+            y--;
+        }
+        x = i;
+        y = j;
+        while (x >= 0 && y < len) {
+            if (chessboard[x][y] == 1) return false;
+            x--;
+            y++;
         }
         return true;
     }

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.leetcode.standard.BackTrack;
 import com.leetcode.standard.DiscountCalculate;
 import com.leetcode.standard.NQueen;
+import com.leetcode.standard.NQueen1;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
 //        double[] list = new double[]{20.12, 29.24, 30.34, 18.12, 50.74};
 //        DiscountCalculate.getDiscountDpOptimize(60.25, list);
-        Log.d("lizheren", new NQueen().totalNQueens(8) + "");
+        long l = System.currentTimeMillis();
+        Log.d("lizheren", new NQueen1().totalNQueens(8) + "");
+        Log.d("lizheren", System.currentTimeMillis() - l + "");
     }
 }

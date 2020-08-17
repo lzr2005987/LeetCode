@@ -11,21 +11,14 @@ public class No52 {
 
     private void backtrack(int[][] position, int n, int cur) {
         for (int i = 0; i < n; i++) {
-            boolean isPut = false;
-            for (int j = 0; j < n; j++) {
-                if (check(position, i, j, cur)) {
-                    isPut = true;
-                    if (cur == n - 1) {
-                        ans++;
-                        return;
-                    }
-                    position[cur][0] = i;
-                    position[cur][1] = j;
-                    backtrack(copy(position, cur), n, cur + 1);
+            if (check(position, cur, i, cur)) {
+                if (cur == n - 1) {
+                    ans++;
+                    return;
                 }
-            }
-            if (!isPut) {
-                break;
+                position[cur][0] = cur;
+                position[cur][1] = i;
+                backtrack(copy(position, cur), n, cur + 1);
             }
         }
     }

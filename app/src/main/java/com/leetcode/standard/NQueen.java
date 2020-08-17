@@ -1,7 +1,5 @@
 package com.leetcode.standard;
 
-import java.lang.reflect.Array;
-
 public class NQueen {
     private int ans = 0;
 
@@ -13,31 +11,21 @@ public class NQueen {
 
     private void backtrack(int[][] position, int n, int cur) {
         for (int i = 0; i < n; i++) {
-            boolean isPut = false;
-            for (int j = 0; j < n; j++) {
-                if (check(position, i, j, cur)) {
-                    isPut = true;
-                    if (cur == n - 1) {
-                        ans++;
-                        return;
-                    }
-                    position[cur][0] = i;
-                    position[cur][1] = j;
-                    backtrack(copy(position, cur), n, cur + 1);
+            if (check(position, cur, i, cur)) {
+                if (cur == n - 1) {
+                    ans++;
+                    return;
                 }
-            }
-            if (!isPut) {
-                break;
+                position[cur][0] = cur;
+                position[cur][1] = i;
+                backtrack(copy(position, cur), n, cur + 1);
             }
         }
     }
 
     private int[][] copy(int[][] origin, int cur) {
         int[][] newArray = new int[origin.length][2];
-        for (int i = 0; i <= cur; i++) {
-            newArray[i][0] = origin[i][0];
-            newArray[i][1] = origin[i][1];
-        }
+        System.arraycopy(origin, 0, newArray, 0, cur + 1);
         return newArray;
     }
 
