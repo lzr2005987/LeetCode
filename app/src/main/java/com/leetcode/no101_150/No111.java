@@ -1,9 +1,7 @@
 package com.leetcode.no101_150;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.concurrent.LinkedBlockingDeque;
 
 public class No111 {
     public class TreeNode {
@@ -20,25 +18,26 @@ public class No111 {
         if (root == null) {
             return 0;
         }
-        LinkedList<TreeNode> treeNodes = new LinkedList<>();
-        LinkedList<Integer> height = new LinkedList<>();
-        treeNodes.add(root);
-        height.add(1);
-        while (!treeNodes.isEmpty()) {
-            TreeNode newRoot = treeNodes.poll();
-            int newLevel = height.poll();
-            if (newRoot.left == null && newRoot.right == null) {
-                return newLevel;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        return bfs(queue, 1);
+    }
+
+    private int bfs(Queue<TreeNode> cur, int depth) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        while (!cur.isEmpty()) {
+            TreeNode node = cur.poll();
+            if (node.left == null && node.right == null) {
+                return depth;
             }
-            if (newRoot.left != null) {
-                treeNodes.add(newRoot.left);
-                height.add(newLevel + 1);
+            if (node.left != null) {
+                queue.offer(node.left);
             }
-            if (newRoot.right != null) {
-                treeNodes.add(newRoot.right);
-                height.add(newLevel + 1);
+            if (node.right != null) {
+                queue.offer(node.right);
             }
         }
-        return 0;
+
+        return bfs(queue, depth + 1);
     }
 }
