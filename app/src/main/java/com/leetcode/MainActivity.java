@@ -2,15 +2,10 @@ package com.leetcode;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.leetcode.standard.GoodsChoices;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import com.leetcode.no1_50.No37;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 //        long l = System.currentTimeMillis();
 //        Log.d("lizheren", new NQueen1().totalNQueens(8) + "");
 //        Log.d("lizheren", System.currentTimeMillis() - l + "");
-        GoodsChoices.AttrList attrList = new GoodsChoices.AttrList();
+/*        GoodsChoices.AttrList attrList = new GoodsChoices.AttrList();
         List<String> values = new ArrayList<>();
         values.add("白色");
         values.add("黑色");
@@ -51,6 +46,18 @@ public class MainActivity extends AppCompatActivity {
         list.add(attrList1);
         list.add(attrList2);
         List<HashMap<String, String>> choices = new GoodsChoices().getChoices(list);
-        Log.d("lizheren", "clickTv: "+choices);
+        Log.d("lizheren", "clickTv: "+choices);*/
+        No37 no37 = new No37();
+        char[][] board = new char[][]{
+                {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
+        no37.solveSudoku(board);
     }
 }
