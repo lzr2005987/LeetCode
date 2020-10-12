@@ -1,13 +1,14 @@
 package com.leetcode.no51_100;
 
-public class No79 {
-    private String wordCopy;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
+public class No79 {
     public boolean exist(char[][] board, String word) {
-        wordCopy = word;
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                if (find(copy(board), i, j, 0)) {
+                if (find(new HashMap<Integer, List<Integer>>(), board, word, i, j, 0)) {
                     return true;
                 }
             }
@@ -15,49 +16,40 @@ public class No79 {
         return false;
     }
 
-    private boolean find(char[][] board, int a, int b, int index) {
-        if (index >= wordCopy.length()) {
-            return true;
-        }
-        char cur = board[a][b];
-        if (cur == wordCopy.charAt(index)) {
-            if (index == wordCopy.length() - 1) {
+    private boolean find(HashMap<Integer, List<Integer>> map, char[][] board, String word, int i, int j, int p) {
+        if (board[i][j] == word.charAt(p)) {
+            HashMap<Integer, List<Integer>> copyMap = new HashMap<>(map);
+            List<Integer> list = new ArrayList<>(copyMap.getOrDefault(i, new ArrayList<Integer>()));
+
+            if (list.contains(j)) {
+                return false;
+            }
+            if (p == word.length() - 1) {
                 return true;
             }
-            board[a][b] = ' ';
-            boolean right = false;
-            boolean left = false;
-            boolean down = false;
-            boolean up = false;
-            if (a + 1 < board.length) {
-                down = find(copy(board),a + 1, b, index + 1);
-                if (down) return true;
-            }
-            if (b + 1 < board[0].length) {
-                right = find(copy(board), a, b + 1, index + 1);
-                if (right) return true;
-            }
-            if (b - 1 >= 0) {
-                left = find(copy(board), a, b - 1, index + 1);
-                if (left) return true;
-            }
-            if (a - 1 >= 0) {
-                up = find(copy(board), a - 1, b, index + 1);
+            list.add(j);
+            copyMap.put(i, list);
+            boolean up, down, left, right;
+            if (i > 0) {
+                up = find(copyMap, board, word, i - 1, j, p + 1);
                 if (up) return true;
             }
-            return false;
-        } else {
-            return false;
-        }
-    }
 
-    private char[][] copy(char[][] ori) {
-        char[][] res = new char[ori.length][ori[0].length];
-        for (int i = 0; i < ori.length; i++) {
-            for (int j = 0; j < ori[0].length; j++) {
-                res[i][j] = ori[i][j];
+            if (j > 0) {
+                left = find(copyMap, board, word, i, j - 1, p + 1);
+                if (left) return true;
+            }
+
+            if (i < board.length - 1) {
+                down = find(copyMap, board, word, i + 1, j, p + 1);
+                if (down) return true;
+            }
+
+            if (j < board[0].length - 1) {
+                right = find(copyMap, board, word, i, j + 1, p + 1);
+                return right;
             }
         }
-        return res;
+        return false;
     }
 }
