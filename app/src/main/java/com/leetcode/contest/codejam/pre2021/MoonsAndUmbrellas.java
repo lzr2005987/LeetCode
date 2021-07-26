@@ -1,4 +1,4 @@
-package com.leetcode.contest.codejam;
+package com.leetcode.contest.codejam.pre2021;
 
 import java.io.PrintWriter;
 import java.util.Scanner;
